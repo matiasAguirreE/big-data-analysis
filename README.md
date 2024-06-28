@@ -45,8 +45,8 @@ Lorem ipsum dolor sit amet. Ea iure dolorem in explicabo doloribus est porro vol
 ## Team Members
 
 - [Matías Aguirre Erazo](https://github.com/matiasAguirreE)
-- [Tomás Rivas Acuña]()
-- [Scarleth Betancurt Contreras]()
+- [Tomás Rivas Acuña](https://github.com/Trivas2000)
+- [Scarleth Betancurt Contreras](https://github.com/scarleth-bc)
 
 ## Acknowledgments
 
