@@ -55,7 +55,7 @@ Once we have gathered and processed the data, we will perform data analysis and 
 
 ### Graph of the Analysis
 How has the percentage of bicycle usage in Barcelona changed over the years 2019, 2020, and 2023?
-<img src="#" alt="Graph of the Analysis" width="1000">
+<img src="https://github.com/matiasAguirreE/big-data-analysis/blob/main/media/graph.jpg?raw=true" alt="Graph of the Analysis" width="1000">
 
 ## Conclusion
 
