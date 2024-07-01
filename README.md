@@ -16,11 +16,13 @@ Lorem ipsum dolor sit amet. Ea iure dolorem in explicabo doloribus est porro vol
 
 The project is organized into the following directories:
 
-1. `data`: Contains the CSV files with the bike sharing data.
+1. `dist`: Contains the mdp-hadoop.jar file created by build.xml file.
+2. `lib`: Contains jar files
+3. `src`: Contains the java code of the project 
 
 ## Data
 
-The raw data for this project is stored in CSV format. These files have been organized in folders of the year 2019, 2020 and 2023. The main datasets of each folder include:
+The data for this project is stored in CSV format. These files have been organized in folders of the year 2019, 2020 and 2023. The main datasets of each folder include:
 
 1. **XXXX_01_STATIONS.csv**: Contains data related to January.
 2. **XXXX_02_STATIONS.csv**: Contains data related to February.
@@ -36,7 +38,7 @@ The raw data for this project is stored in CSV format. These files have been org
 12. **XXXX_12_STATIONS.csv**: Contains data related to December.
 13. **XXXX_INFO.csv**: Contains data related to the info of the year.
 
-For viewing the original data files, you can access them through the following link: [Bike Sharing](https://www.kaggle.com/datasets/edomingo/bicing-stations-dataset-bcn-bike-sharing/data)
+For viewing the data files, you can access them through the following link: [Bike Sharing](https://www.kaggle.com/datasets/edomingo/bicing-stations-dataset-bcn-bike-sharing/data)
 
 ## Conclusion
 
