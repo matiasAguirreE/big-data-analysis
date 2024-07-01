@@ -32,9 +32,9 @@ public class countAvailableDocksByMonth {
             String[] fields = line.split(",");
             
             if (fields.length > NUM_DOCKS_AVAILABLE_INDEX && 
-                fields[STATION_ID_INDEX] != null && !fields[STATION_ID_INDEX].isEmpty() && 
-                fields[NUM_BIKES_AVAILABLE_INDEX] != null && !fields[NUM_BIKES_AVAILABLE_INDEX].isEmpty() && 
-                fields[NUM_DOCKS_AVAILABLE_INDEX] != null && !fields[NUM_DOCKS_AVAILABLE_INDEX].isEmpty()) {
+                isValid(fields[STATION_ID_INDEX]) && 
+                isValid(fields[NUM_BIKES_AVAILABLE_INDEX]) && 
+                isValid(fields[NUM_DOCKS_AVAILABLE_INDEX])) {
 
                 String station_Id = fields[STATION_ID_INDEX];
                 int stationId = Integer.parseInt(fields[STATION_ID_INDEX]);
@@ -44,6 +44,10 @@ public class countAvailableDocksByMonth {
 
                 context.write(new Text(station_Id), new Text(outputValue));
             }
+        }
+
+        private boolean isValid(String field) {
+            return field != null && !field.isEmpty() && !field.equals("NA");
         }
     }
 
@@ -58,9 +62,9 @@ public class countAvailableDocksByMonth {
             for (Text value : values) {
                 String[] fields = value.toString().split(",");
                 if (fields.length > 2 && 
-                    fields[0] != null && !fields[0].isEmpty() && 
-                    fields[1] != null && !fields[1].isEmpty() && 
-                    fields[2] != null && !fields[2].isEmpty()) {
+                    isValid(fields[0]) && 
+                    isValid(fields[1]) && 
+                    isValid(fields[2])) {
                     
                     String stationId = fields[0];
 
@@ -81,6 +85,10 @@ public class countAvailableDocksByMonth {
             double percentageDocksAvailable = (double) totalDocksAvailable / (totalBikesAvailable + totalDocksAvailable) * 100;
             String outputValue = String.format("%.2f", percentageDocksAvailable) + " %";
             context.write(new Text("mes"), new Text(outputValue));
+        }
+
+        private boolean isValid(String field) {
+            return field != null && !field.isEmpty() && !field.equals("NA");
         }
     }
 
