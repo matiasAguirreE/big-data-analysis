@@ -4,9 +4,10 @@
 1. [Introduction](#introduction)
 2. [Project Structure](#project-structure)
 3. [Data](#data)
-7. [Conclusion](#conclusion)
-8. [Team Members](#team-members)
-9. [Acknowledgments](#acknowledgments)
+4. [Running the Project](#running-the-project)
+5. [Conclusion](#conclusion)
+6. [Team Members](#team-members)
+7. [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
@@ -39,6 +40,13 @@ The data for this project is stored in CSV format. These files have been organiz
 13. **XXXX_INFO.csv**: Contains data related to the info of the year.
 
 For viewing the data files, you can access them through the following link: [Bike Sharing](https://www.kaggle.com/datasets/edomingo/bicing-stations-dataset-bcn-bike-sharing/data)
+
+## Running the Project
+
+1. Copy the JAR file to your server with the command: scp -P `port` `local-path`/mdp-hadoop.jar `server-name`:/`server-path`/.
+2. Copy the data files to your server with the command: scp -P `port` `local-path`/`csv-file-name`.csv `server-name`:/`server-path`/.
+3. Now call the Hadoop job with the command: hadoop jar `local-path`/mdp-hadoop.jar CountAvailableDocksByMonth /`server-input-path`/XXXX_XX_STATIONS.csv /`server-output-path`/
+4. Watch the results with the command: hdfs dfs -cat /`server-output-path`/part-r-00000 
 
 ## Conclusion
 
