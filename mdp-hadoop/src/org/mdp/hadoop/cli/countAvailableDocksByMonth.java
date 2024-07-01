@@ -2,7 +2,6 @@ package org.mdp.hadoop.cli;
 
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.apache.hadoop.conf.Configuration;
@@ -31,14 +30,20 @@ public class countAvailableDocksByMonth {
                 return;
             }
             String[] fields = line.split(",");
-            String station_Id = fields[STATION_ID_INDEX];
             
-	        int stationId = Integer.parseInt(fields[STATION_ID_INDEX]);
-	        int numBikesAvailable = Integer.parseInt(fields[NUM_BIKES_AVAILABLE_INDEX]);
-	        int numDocksAvailable = Integer.parseInt(fields[NUM_DOCKS_AVAILABLE_INDEX]);
-	        String outputValue =  stationId + "," + numBikesAvailable + "," + numDocksAvailable;
+            if (fields.length > NUM_DOCKS_AVAILABLE_INDEX && 
+                fields[STATION_ID_INDEX] != null && !fields[STATION_ID_INDEX].isEmpty() && 
+                fields[NUM_BIKES_AVAILABLE_INDEX] != null && !fields[NUM_BIKES_AVAILABLE_INDEX].isEmpty() && 
+                fields[NUM_DOCKS_AVAILABLE_INDEX] != null && !fields[NUM_DOCKS_AVAILABLE_INDEX].isEmpty()) {
 
-            context.write(new Text(station_Id), new Text(outputValue));
+                String station_Id = fields[STATION_ID_INDEX];
+                int stationId = Integer.parseInt(fields[STATION_ID_INDEX]);
+                int numBikesAvailable = Integer.parseInt(fields[NUM_BIKES_AVAILABLE_INDEX]);
+                int numDocksAvailable = Integer.parseInt(fields[NUM_DOCKS_AVAILABLE_INDEX]);
+                String outputValue =  stationId + "," + numBikesAvailable + "," + numDocksAvailable;
+
+                context.write(new Text(station_Id), new Text(outputValue));
+            }
         }
     }
 
@@ -49,42 +54,35 @@ public class countAvailableDocksByMonth {
         @Override
         protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
             Set<String> uniqueRowsSet = new HashSet<>();
-            //int stationTotalBikes = 0;
-            //int stationTotalDocks = 0;
-            
 
             for (Text value : values) {
                 String[] fields = value.toString().split(",");
-                String stationId = fields[0];
+                if (fields.length > 2 && 
+                    fields[0] != null && !fields[0].isEmpty() && 
+                    fields[1] != null && !fields[1].isEmpty() && 
+                    fields[2] != null && !fields[2].isEmpty()) {
+                    
+                    String stationId = fields[0];
 
-                if (!uniqueRowsSet.contains(stationId)) {
-                    uniqueRowsSet.add(stationId);
-                    int numBikesAvailable = Integer.parseInt(fields[1]);
-                    int numDocksAvailable = Integer.parseInt(fields[2]);
+                    if (!uniqueRowsSet.contains(stationId)) {
+                        uniqueRowsSet.add(stationId);
+                        int numBikesAvailable = Integer.parseInt(fields[1]);
+                        int numDocksAvailable = Integer.parseInt(fields[2]);
 
-                    //stationTotalBikes += numBikesAvailable;
-                    //stationTotalDocks += numDocksAvailable;
-
-                    totalBikesAvailable += numBikesAvailable;
-                    totalDocksAvailable += numDocksAvailable;
+                        totalBikesAvailable += numBikesAvailable;
+                        totalDocksAvailable += numDocksAvailable;
+                    }
                 }
             }
-
-            //String result = key.toString() + "," + stationTotalBikes + "," + stationTotalDocks + "," + (stationTotalBikes + stationTotalDocks);
-            //context.write(key, new Text(result));
         }
 
         @Override
         protected void cleanup(Context context) throws IOException, InterruptedException {
-            //String totalResult = "Total," + totalBikesAvailable + "," + totalDocksAvailable + "," + (totalBikesAvailable + totalDocksAvailable);
-            //context.write(new Text("Total"), new Text(totalResult));
-        	double percentageDocksAvailable = (double) totalDocksAvailable/ (totalBikesAvailable + totalDocksAvailable) * 100;
+            double percentageDocksAvailable = (double) totalDocksAvailable / (totalBikesAvailable + totalDocksAvailable) * 100;
             String outputValue = String.format("%.2f", percentageDocksAvailable) + " %";
             context.write(new Text("mes"), new Text(outputValue));
         }
     }
-
-
 
     public static void main(String[] args) throws Exception {
         if (args.length != 2) {
