@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class countAvailableDocksByMonth {
+public class CountAvailableDocksByMonth {
 
     public static class cadbmMapper extends Mapper<Object, Text, Text, Text> {
         private static final int STATION_ID_INDEX = 0;
@@ -94,7 +94,7 @@ public class countAvailableDocksByMonth {
 
     public static void main(String[] args) throws Exception {
         if (args.length != 2) {
-            System.err.println("Usage: countAvailableDocksByMonth <input path> <output path>");
+            System.err.println("Usage: CountAvailableDocksByMonth <input path> <output path>");
             System.exit(-1);
         }
         Job job = Job.getInstance(new Configuration());
@@ -111,7 +111,7 @@ public class countAvailableDocksByMonth {
         job.setMapperClass(cadbmMapper.class);
         job.setReducerClass(cadbmReducer.class);
 
-        job.setJarByClass(countAvailableDocksByMonth.class);
+        job.setJarByClass(CountAvailableDocksByMonth.class);
         job.waitForCompletion(true);
     }
 }

@@ -13,7 +13,7 @@ import org.apache.hadoop.mapreduce.Reducer.Context;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
-public class countAvailableDocksByStation {
+public class CountAvailableDocksByStation {
 
     public static class BikesMapper extends Mapper<LongWritable, Text, Text, Text> {
         private static final int STATION_ID_INDEX = 0;
@@ -64,7 +64,7 @@ public class countAvailableDocksByStation {
 
     public static void main(String[] args) throws Exception {
         if (args.length != 2) {
-            System.err.println("Usage: countAvailableDocksByStation <input path> <output path>");
+            System.err.println("Usage: CountAvailableDocksByStation <input path> <output path>");
             System.exit(-1);
         }
         Job job = Job.getInstance(new Configuration());
@@ -82,7 +82,7 @@ public class countAvailableDocksByStation {
         job.setMapperClass(BikesMapper.class);
         job.setReducerClass(BikesReducer.class);
 
-        job.setJarByClass(countAvailableDocksByStation.class);
+        job.setJarByClass(CountAvailableDocksByStation.class);
         job.waitForCompletion(true);
     }
 }
