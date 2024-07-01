@@ -12,7 +12,7 @@
 
 ## Introduction
 
-Welcome to our Big Data Analysis Project! This project is part of the Big Data course at the Universidad de Chile. The main goal of this project is to analyze the percentage of bicycle usage in Barcelonaover the years 2019, 2020, and 2023. The data is provided in CSV format, and we will be using Apache Hadoop with Java to perform distributed data processing.
+Welcome to our Big Data Analysis Project! This project is part of the Big Data course at the Universidad de Chile. The main goal of this project is to analyze the percentage of bicycle usage in Barcelona over the years 2019, 2020, and 2023. The data is provided in CSV format, and we will be using Apache Hadoop with Java to perform distributed data processing.
 
 ## Project Structure
 
