@@ -1,6 +1,9 @@
 # Visual studio code
 .vscode
 
+# Ref code
+/ref/
+
 # Java build artifacts
 /target/
 
