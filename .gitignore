@@ -1,1 +1,28 @@
+# Visual studio code
 .vscode
+
+# Java build artifacts
+/target/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Eclipse metadata
+.metadata/
+
+# IntelliJ project files
+.idea/
+
+# Logs
+/logs/
+
+# Compiled classes
+*.class
+
+# Hadoop output directory
+/output/
+
+# Maven build directory
+/bin/
