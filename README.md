@@ -51,7 +51,7 @@ For viewing the data files, you can access them through the following link: [Bik
 
 ## Data Analysis and Visualization
 
-Once we have gathered and processed the data, we will perform data analysis and visualization.
+Once we have gathered and processed the data, we will perform data analysis and visualization. It should be noted that the results for month 9 of the year 2023 were taken to be the same as for month 8 of the year 2023 due to a high amount of null values in the dataset.
 
 ### Graph of the Analysis
 How has the percentage of bicycle usage in Barcelona changed over the years 2019, 2020, and 2023?
