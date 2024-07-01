@@ -5,13 +5,14 @@
 2. [Project Structure](#project-structure)
 3. [Data](#data)
 4. [Running the Project](#running-the-project)
-5. [Conclusion](#conclusion)
-6. [Team Members](#team-members)
-7. [Acknowledgments](#acknowledgments)
+5. [Data Analysis and Visualization](#data-analysis-and-visualization)
+6. [Conclusion](#conclusion)
+7. [Team Members](#team-members)
+8. [Acknowledgments](#acknowledgments)
 
 ## Introduction
 
-Lorem ipsum dolor sit amet. Ea iure dolorem in explicabo doloribus est porro voluptas aut atque aperiam sed adipisci repellat est accusantium amet sed cupiditate consectetur. Aut voluptatibus sapiente et aspernatur omnis ut consequatur saepe ad ducimus architecto et expedita dolore vel nesciunt ipsa.
+Welcome to our Big Data Analysis Project! This project is part of the Big Data course at the Universidad de Chile. The main goal of this project is to analyze the percentage of bicycle usage in Barcelonaover the years 2019, 2020, and 2023. The data is provided in CSV format, and we will be using Apache Hadoop with Java to perform distributed data processing.
 
 ## Project Structure
 
@@ -46,7 +47,15 @@ For viewing the data files, you can access them through the following link: [Bik
 1. Copy the JAR file to your server with the command: scp -P `port` `local-path`/mdp-hadoop.jar `server-name`:/`server-path`/.
 2. Copy the data files to your server with the command: scp -P `port` `local-path`/`csv-file-name`.csv `server-name`:/`server-path`/.
 3. Now call the Hadoop job with the command: hadoop jar `local-path`/mdp-hadoop.jar CountAvailableDocksByMonth /`server-input-path`/XXXX_XX_STATIONS.csv /`server-output-path`/
-4. Watch the results with the command: hdfs dfs -cat /`server-output-path`/part-r-00000 
+4. Watch the results with the command: hdfs dfs -cat /`server-output-path`/part-r-00000
+
+## Data Analysis and Visualization
+
+Once we have gathered and processed the data, we will perform data analysis and visualization.
+
+### Graph of the Analysis
+How has the percentage of bicycle usage in Barcelona changed over the years 2019, 2020, and 2023?
+<img src="#" alt="Graph of the Analysis" width="1000">
 
 ## Conclusion
 
