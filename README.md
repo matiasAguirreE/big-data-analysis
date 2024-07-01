@@ -19,8 +19,9 @@ Welcome to our Big Data Analysis Project! This project is part of the Big Data c
 The project is organized into the following directories:
 
 1. `dist`: Contains the mdp-hadoop.jar file created by build.xml file.
-2. `lib`: Contains jar files
-3. `src`: Contains the java code of the project 
+2. `lib`: Contains jar files of the project.
+3. `media`: Contains the media files of the project.
+4. `src`: Contains the java code of the project. 
 
 ## Data
 
