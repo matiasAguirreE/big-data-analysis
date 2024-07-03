@@ -61,7 +61,7 @@ How has the percentage of bicycle usage in Barcelona changed over the years 2019
 
 ## Conclusion
 
-Lorem ipsum dolor sit amet. Ea iure dolorem in explicabo doloribus est porro voluptas aut atque aperiam sed adipisci repellat est accusantium amet sed cupiditate consectetur. Aut voluptatibus sapiente et aspernatur omnis ut consequatur saepe ad ducimus architecto et expedita dolore vel nesciunt ipsa.
+It can be concluded that the pandemic significantly impacted the percentage of bicycle usage. There is a noticeable increase in the percentage of bicycle usage in the post-COVID year compared to the pre-COVID year. This rise can be attributed to people's increased appreciation for open spaces as a consequence of the pandemic.
 
 ## Team Members
 
